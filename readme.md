@@ -5,6 +5,8 @@
 
 # 1. Introduction
 
+NodeJS Client that can create document types and upload scripts
+
 ## 1.1. Todo list
 
 - [x] Create Document Types
