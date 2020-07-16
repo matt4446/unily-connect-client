@@ -1,6 +1,6 @@
 {
   "name": "unily-connect-client",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "Client to talk to Unily Connect APIs",
   "main": "index.js",
   "scripts": {
@@ -11,6 +11,7 @@
   ],
   "author": "Matthew Green",
   "license": "ISC",
+  "publishConfig": { "registry": "https://npm.pkg.github.com/" },
   "devDependencies": {
     "client-oauth2": "^4.3.0",
     "install": "^0.13.0",
