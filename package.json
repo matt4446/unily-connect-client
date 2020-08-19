@@ -18,12 +18,10 @@
     "client-oauth2": "^4.3.0",
     "install": "^0.13.0",
     "node-fetch": "^2.6.0",
-    "prompts": "^2.3.2",
     "whatwg-fetch": "^3.0.0",
     "minimist": "~1.2.5"
   },
   "devDependencies": {},
   "bundledDependencies": [
-    "prompts"
   ]
 }
