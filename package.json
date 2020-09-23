@@ -1,6 +1,6 @@
 {
   "name": "unily-connect-client-dev-uploader",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Client to talk to Unily Connect APIs",
   "main": "index.js",
   "type": "module",
