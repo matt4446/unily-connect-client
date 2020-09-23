@@ -1,8 +1,9 @@
 {
-  "name": "unily-connect-client",
+  "name": "unily-connect-client-dev-uploader",
   "version": "0.0.1",
   "description": "Client to talk to Unily Connect APIs",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -11,17 +12,14 @@
   ],
   "author": "Matthew Green",
   "license": "ISC",
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com/"
-  },
   "dependencies": {
     "client-oauth2": "^4.3.0",
     "install": "^0.13.0",
+    "minimist": "^1.2.5",
     "node-fetch": "^2.6.0",
-    "whatwg-fetch": "^3.0.0",
-    "minimist": "~1.2.5"
+    "prompts": "^2.3.1",
+    "whatwg-fetch": "^3.0.0"
   },
   "devDependencies": {},
-  "bundledDependencies": [
-  ]
+  "bundledDependencies": []
 }

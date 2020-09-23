@@ -1,9 +1,11 @@
 const fs = require('fs');
-
-const stagingKey = ".staging";
-const productionKey = ".production"; 
+const prompts = require('prompts');
+// const stagingKey = ".staging";
+// const productionKey = ".production"; 
+const parseArgs = require('minimist')(process.argv.slice(2))
+//console.log(parseArgs);
 const internal = {
-    staging: true
+    config : parseArgs.config || "staging" 
 };
 
 const options = {
@@ -13,12 +15,18 @@ const options = {
 };
 
 function getConfigPath(){
-    const configFilePath = `./upload-config${internal.staging ? stagingKey : productionKey}.json`;
+    const configFilePath = `./upload-config.${internal.config}.json`;
 
     return configFilePath;
 }
 function exists(){
-    return fs.existsSync(getConfigPath());
+    const path = getConfigPath(); 
+    const exists = fs.existsSync(path);
+
+    if(!exists){
+        console.warn(`${path} does not exist`);
+    }
+    return exists;
 }
 
 function valid(){
@@ -50,11 +58,23 @@ function saved(err){
     }
     console.log('Configuration saved successfully.');
 }
+async function askQuestions(){
+    const enterSettingsQuestions = require("./upload/questions");
+    const response = await prompts(enterSettingsQuestions.questions);
+    options.apiHost = response.apiHost;
+    options.clientId = response.clientId; 
+    options.clientSecret = response.clientSecret;
+    save(); 
+
+    return response;
+}
 
 module.exports = {
-    options: options,
-    exists: exists,
-    valid: valid,
-    load: load,
-    save: save 
+    options,
+    exists,
+    valid,
+    load,
+    save,
+    askQuestionsAsync: askQuestions 
 }
+
